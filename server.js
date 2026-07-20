@@ -6,3 +6,5 @@ app.get("/",(req,res)=>{
 })
 app.get('/about',(req,res)=>{
     res.send("HELLO FROM ABOUT")
+})
+app.listen(3000)
