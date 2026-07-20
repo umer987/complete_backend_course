@@ -5,3 +5,4 @@ app.get("/",(req,res)=>{
     res.send("HELLO WORLD")
 })
 app.get('/about',(req,res)=>{
+    res.send("HELLO FROM ABOUT")
