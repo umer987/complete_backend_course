@@ -1,4 +1,12 @@
-const server = require("express")
+const express =require('express')
 
 const app = express()
-app.listen(3000)
+
+const notes = []
+
+app.post('/notes' , (req,res)=>{
+    
+})
+
+
+module.exports = app
