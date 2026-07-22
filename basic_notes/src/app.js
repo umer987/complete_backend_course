@@ -5,8 +5,16 @@ app.use(express.json())
 const notes = []
 
 app.post('/notes' , (req,res)=>{
-    console.log(req.body)
+        notes.push(req.body)
+        res.status(201).json({
+            message:"resourse created successfully"
+        })
+    })
+
+app.get('/notes',(req,res)=>{
+    res.status(200).json({
+        message:"resourse fetched successfully",
+        notes:notes
+    })
 })
-
-
 module.exports = app
