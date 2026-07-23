@@ -41,3 +41,6 @@ app.patch('/notes/:index',(req,res)=>{
 })
 
 module.exports = app
+
+JfGdGPjTMVlUAqME
+mongodb+srv://syedu:JfGdGPjTMVlUAqME@yt-backend.8trduon.mongodb.net/
