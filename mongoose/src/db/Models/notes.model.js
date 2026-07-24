@@ -4,3 +4,7 @@
         title:String,
         description:String
     })
+
+    const notemodel = mongoose.model("note",noteschema)
+
+     module.exports = notemodel
