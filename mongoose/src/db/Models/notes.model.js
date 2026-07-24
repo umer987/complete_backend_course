@@ -2,7 +2,7 @@
 
     const noteschema = new mongoose.Schema({
         title:String,
-        description:String
+        desc:String
     })
 
     const notemodel = mongoose.model("note",noteschema)
