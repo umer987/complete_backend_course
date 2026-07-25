@@ -11,6 +11,8 @@ const navigate = useNavigate()
         .then((res)=>{
             navigate('/feed')
            // e.target.reset()
+            console.log(res)
+            alert('DATA UPLOAD COMPLETE')
         
         }
    
