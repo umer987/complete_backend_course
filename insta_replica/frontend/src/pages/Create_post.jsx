@@ -5,7 +5,8 @@ function Create_post() {
 const navigate = useNavigate()
 
     const handle_submit = async (e) => {
-       
+        e.preventDefault()
+        
         }
    
 
