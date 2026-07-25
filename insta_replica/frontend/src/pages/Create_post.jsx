@@ -13,6 +13,8 @@ const navigate = useNavigate()
            // e.target.reset()
             console.log(res)
             alert('DATA UPLOAD COMPLETE')
+        })
+        .catch((err)=>{
         
         }
    
