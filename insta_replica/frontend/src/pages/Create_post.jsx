@@ -15,6 +15,7 @@ const navigate = useNavigate()
             alert('DATA UPLOAD COMPLETE')
         })
         .catch((err)=>{
+            console.log(err)
         
         }
    
