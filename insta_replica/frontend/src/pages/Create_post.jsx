@@ -16,7 +16,8 @@ const navigate = useNavigate()
         })
         .catch((err)=>{
             console.log(err)
-        
+            alert("error")
+        })
         }
    
 
