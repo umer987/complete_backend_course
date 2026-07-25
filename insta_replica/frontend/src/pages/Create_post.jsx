@@ -4,7 +4,9 @@ import {useNavigate} from "react-router-dom"
 function Create_post() {
 const navigate = useNavigate()
 
-    
+    const handle_submit = async (e) => {
+       
+        }
    
 
 
