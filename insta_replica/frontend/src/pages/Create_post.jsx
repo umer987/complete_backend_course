@@ -6,6 +6,7 @@ const navigate = useNavigate()
 
     const handle_submit = async (e) => {
         e.preventDefault()
+         const formData = new FormData(e.target) 
         
         }
    
