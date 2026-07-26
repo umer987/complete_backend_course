@@ -12,3 +12,4 @@ authentication
 authenticate to the userer who give req
 
 authorization
+admin
