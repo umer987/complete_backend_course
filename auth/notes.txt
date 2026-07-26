@@ -5,3 +5,4 @@ password abc  take data is in required format
 
 verification
 check take data is in required format
+otp send 
