@@ -28,11 +28,15 @@ const navigate = useNavigate()
        <h1 className='font-bold mb-3.5 text-4xl'>Add Post...</h1>
        </div> 
        <div className='p-1.5 w-full h-full'>
+
+  
        <form className='flex flex-col' onSubmit={handle_submit}>
         <input className='border rounded-[3px] p-1.5 mb-3.5' type="file" name="image"  accept='image/*'/>
         <input className='border mb-3.5 rounded-[3px] p-1.5' type="text" name='caption' placeholder='Enter Caption Here' required />
         <button type='submit' className='border w-[100px] rounded-[3px] p-1.5'>ADD</button>
        </form>
+
+
        </div>
     </div>
   )
