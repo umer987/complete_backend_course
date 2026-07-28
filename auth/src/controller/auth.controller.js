@@ -15,3 +15,17 @@ async function register(req, res) {
     }
     
     console.log(username, email, password)
+    const user = await usermodel.create({
+        username, email, password
+    })
+    const token = jwt.sign({
+        id: user._id
+    }, process.env.JWTSEC)
+    res.cookie("token", token)
+    res.status(201).json({
+        message: "USER CREATED SUCCESSFULLY",
+        user
+    })
+}
+
+module.exports = { register }
