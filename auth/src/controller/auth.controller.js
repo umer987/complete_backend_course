@@ -8,3 +8,5 @@ async function register(req, res) {
     const isuserexist = await usermodel.findOne({
         email
     })
+    if(isuserexist){
+        return res.status(409).json({
