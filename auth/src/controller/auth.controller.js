@@ -13,3 +13,5 @@ async function register(req, res) {
             message:"user already exist"
         })
     }
+    
+    console.log(username, email, password)
