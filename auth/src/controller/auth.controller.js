@@ -10,3 +10,6 @@ async function register(req, res) {
     })
     if(isuserexist){
         return res.status(409).json({
+            message:"user already exist"
+        })
+    }
