@@ -15,3 +15,5 @@ async function register_user(req, res) {
     if (isuserexist) {
         return res.status(409).json({ message: "USER ALREASDY EXIST" })
     }
+    const user = await usermodel.create({
+        username, email, password:hash, role
