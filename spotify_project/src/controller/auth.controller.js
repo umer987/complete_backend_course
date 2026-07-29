@@ -8,3 +8,5 @@ async function register_user(req, res) {
     const hash = await bcrypt.hash(password,10)
     const isuserexist = await usermodel.findOne({
         $or: [
+            { username },
+            { email }
