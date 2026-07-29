@@ -10,3 +10,6 @@ async function register_user(req, res) {
         $or: [
             { username },
             { email }
+        ]
+    })
+    if (isuserexist) {
