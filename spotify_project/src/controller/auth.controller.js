@@ -4,3 +4,4 @@ const bcrypt = require('bcryptjs')
 
 
 async function register_user(req, res) {
+    const { username, email, password, role = "user" } = req.body
