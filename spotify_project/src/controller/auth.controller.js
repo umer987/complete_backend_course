@@ -18,3 +18,5 @@ async function register_user(req, res) {
     const user = await usermodel.create({
         username, email, password:hash, role
     })
+    const token = jwt.sign({
+        id: user._id,
