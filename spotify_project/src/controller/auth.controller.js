@@ -27,3 +27,6 @@ async function register_user(req, res) {
         message: "USER CREATED SUCESSFULLY",
         user:{
             id:user._id,
+            username:user.username,
+            email:user.email,
+            role:user.role
