@@ -23,3 +23,7 @@ async function register_user(req, res) {
         role: user.role
     }, process.env.JWTSEC)
     res.cookie("token", token)
+    res.status(201).json({
+        message: "USER CREATED SUCESSFULLY",
+        user:{
+            id:user._id,
