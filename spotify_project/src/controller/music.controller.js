@@ -6,3 +6,11 @@ const albummodel  = require("../db/models/album.model");
 async function createmusic(req, res) {
     
     const {title} = req.body
+    const file = req.file
+    const result = await uploadfile(file.buffer.toString('base64'))
+    console.log(result)
+    const music = await musicmodel.create({
+        url:result.url,
+        title:title,
+        artist:req.user.id
+    })
