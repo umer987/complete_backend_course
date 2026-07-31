@@ -38,3 +38,7 @@ async function createalbum(req,res) {
                 message:"RESOURSE CREATRED SUCCESSFULLY",
                 album:{
                     id:album._id,
+                    title:album.title,
+                    artist:album.artist,
+                    music:album.musics
+                }
