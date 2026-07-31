@@ -24,3 +24,10 @@ async function createmusic(req, res) {
         }
     })
     } 
+
+
+async function createalbum(req,res) {
+     
+            const {title , musics} = req.body
+            const album = await albummodel.create({
+                title,
