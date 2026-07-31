@@ -53,3 +53,30 @@ async function getallm(req,res) {
         musics:musics
     })
 }
+
+async function getallalbums(req,res) {
+    const album = await albummodel.find()
+    res.status(200).json({
+        mesage:"album fetched succussfully",
+        album:album
+    })
+}
+
+
+
+async function getalbumsbyid(req,res) {
+    const albumid = req.params.albumid
+    const album = await albummodel.findById(albumid).populate('artist',"username email").populate("musics"
+    )
+    res.status(200).json({
+        mesage:"album fetched succussfully",
+        album:album
+    })
+}
+module.exports = {
+    createmusic,
+    createalbum,
+    getallm,
+    getallalbums,
+    getalbumsbyid
+};
