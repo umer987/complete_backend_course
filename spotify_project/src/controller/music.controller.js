@@ -34,3 +34,7 @@ async function createalbum(req,res) {
                 artist:req.user.id,
                 musics:musics
             })
+            res.status(201).json({
+                message:"RESOURSE CREATRED SUCCESSFULLY",
+                album:{
+                    id:album._id,
