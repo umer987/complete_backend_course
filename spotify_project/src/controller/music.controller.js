@@ -47,3 +47,9 @@ async function createalbum(req,res) {
         }
 
 async function getallm(req,res) {
+    const musics = await musicmodel.find().limit(1).populate("artist")
+    res.status(200).json({
+        mesage:"musics fetched succussfully",
+        musics:musics
+    })
+}
