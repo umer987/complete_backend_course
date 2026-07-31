@@ -18,3 +18,9 @@ async function createmusic(req, res) {
         meassage:"MUSIC CREATED SUCCESSFULLY",
         music:{
             id:music._id,
+            url:music.url,
+            title:music.title,
+            artist:music.artist
+        }
+    })
+    } 
