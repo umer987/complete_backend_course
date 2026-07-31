@@ -1,10 +1,48 @@
-const usermodel = require('../db/models/user.model')
-const jwt = require('jsonwebtoken')
-const bcrypt = require('bcryptjs')
+
+async function loginuser(req,res) {
+    const {username , email, password} = req.body
+    const user = await usermodel.findOne({
+        $or:[
+            {username},
+            {email}
+        ]
+    })
+
+    if(!user){
+        return res.status(401).json({
+            message:"INVAILD USER"
+        })
+    }
+
+    const ispaswordvalid = await bcrypt.compare(password , user.password)
+    if(!ispaswordvalid){
+        return res.status(401).json({
+            message:"INVALID PASSWORD"
+        })
+    }
+
+    const token = jwt.sign({
+        id:user._id,
+        role: user.role
+    },process.env.JWTSEC)
+    res.cookie("token" , token)
+
+    res.status(200).json({
+        user:{
+            id:user._id,
+            username:user.username,
+            email: user.email,
+            role: user.role
+        }
+    })
 
 
-async function register_user(req, res) {
-    const { username, email, password, role = "user" } = req.body
+}
+
+module.exports = {
+    register_user,
+    loginuser
+};
     const hash = await bcrypt.hash(password,10)
     const isuserexist = await usermodel.findOne({
         $or: [
@@ -74,14 +112,7 @@ async function loginuser(req,res) {
 
 }
 
-async function logout(req,res) {
-    res.clearCookie("token")
-    res.status(200).json({
-        message:"LOGOUT SUCCESSFLLY"
-    })
-}
 module.exports = {
     register_user,
-    loginuser,
-    logout
+    loginuser
 };
