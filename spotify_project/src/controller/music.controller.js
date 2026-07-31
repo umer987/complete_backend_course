@@ -31,3 +31,6 @@ async function createalbum(req,res) {
             const {title , musics} = req.body
             const album = await albummodel.create({
                 title,
+                artist:req.user.id,
+                musics:musics
+            })
