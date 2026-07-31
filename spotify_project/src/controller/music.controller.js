@@ -42,3 +42,8 @@ async function createalbum(req,res) {
                     artist:album.artist,
                     music:album.musics
                 }
+            })
+
+        }
+
+async function getallm(req,res) {
