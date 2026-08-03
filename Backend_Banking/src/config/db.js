@@ -3,6 +3,10 @@ const mongoose = require('mongoose')
 
 async function connect_db() {
     try{
-        mongoose.connect(process.env.)
+        await mongoose.connect(process.env.DB_CONN)
+        console.log("DATABASE CONNECTED")
+    }
+    catch(err){
+        console.log("ERROR OCCURED WHILE CONNECTING TO DATABASE ", err)
     }
 }
