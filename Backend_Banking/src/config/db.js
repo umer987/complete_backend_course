@@ -10,3 +10,5 @@ async function connect_db() {
         console.log("ERROR OCCURED WHILE CONNECTING TO DATABASE ", err)
     }
 }
+
+module.exports = connect_db
