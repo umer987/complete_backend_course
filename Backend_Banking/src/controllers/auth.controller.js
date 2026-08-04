@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken')
 const usermodel = require('../models/user.model')
+const {SendRegistrationEmail,SendLoginEmail} = require('../services/email.service')
 
 async function createuser(req,res) {
     const { email,password,name } = req.body
@@ -16,7 +17,7 @@ async function createuser(req,res) {
     const user = await usermodel.create({
         email,password,name
     })
-    const token =  jwt.sign({userid:user._id},process.env.JWTSEC,{expiresIn:'3d'})
+    const token = jwt.sign({ _id: user._id }, process.env.JWTSEC, { expiresIn: '3d' })
     res.cookie("token", token)
     res.status(201).json({
         message:"USER CREATED SUCCESSFULLY",
@@ -26,7 +27,8 @@ async function createuser(req,res) {
             name: user.name
         }
     })
-   
+   await SendRegistrationEmail(user.email , user.name)
+   console.log("Email Send");
 }
 catch (error) {
         console.error(error);
@@ -58,9 +60,9 @@ async function loginuser(req,res) {
                 status: "FAILED"
             })
         }
-    const token =  jwt.sign({userid:user._id},process.env.JWTSEC,{expiresIn:'3d'})
-    
-res.cookie("token", token)
+    const token = jwt.sign({ _id: user._id }, process.env.JWTSEC, { expiresIn: '3d' })
+
+    res.cookie("token", token)
     res.status(200).json({
         message:"USER LOGIN SUCCESSFULLY",
         status:"SUCCESSFULLY",
@@ -70,7 +72,8 @@ res.cookie("token", token)
         }
     })
 
-
+await SendLoginEmail(user.email , user.name)
+console.log('EMAIL SEND')
 
 
     }
