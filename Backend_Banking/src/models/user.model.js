@@ -22,3 +22,20 @@ const userschema = new mongoose.Schema({
     }
 },{timestamps:true})
 
+ userschema.pre("save" , async function () {
+    if(!this.isModified("password")){
+        return 
+        }
+        const hash = await bcrypt.hash(this.password, 10)
+        this.password = hash
+        return 
+ })
+
+ userschema.methods.comparePassword  = async function(password) {
+    return await bcrypt.compare(password , this.password)
+ }
+
+ const usermodel =  mongoose.model('user' , userschema)
+
+ module.exports = usermodel
+ 
