@@ -6,3 +6,7 @@ const userschema = new mongoose.Schema({
     type:String,
     required:[true, "EMAIL CANT BE EMPTY"],
     trim:true,
+    lowercase:true,
+    match:[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/],
+    unique:[true,"EMAIL ALREADY EXISIT"]
+  }  ,
