@@ -10,3 +10,6 @@ const userschema = new mongoose.Schema({
     match:[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/],
     unique:[true,"EMAIL ALREADY EXISIT"]
   }  ,
+  name:{
+    type:String,
+    required:[true,"NAME IS REQUIRED TO CREATE A ACCOUNT"]
