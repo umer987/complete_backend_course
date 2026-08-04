@@ -17,3 +17,8 @@ async function authmiddleware(req, res, next) {
         const decoded = jwt.verify(token, process.env.JWTSEC)
         const userId = decoded?._id || decoded?.id
 
+        if (!userId) {
+            return res.status(401).json({
+                message: "UNAUTHORIZED ACCESS: INVALID TOKEN PAYLOAD",
+                status: 'failed'
+
