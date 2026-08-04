@@ -21,4 +21,8 @@ async function authmiddleware(req, res, next) {
             return res.status(401).json({
                 message: "UNAUTHORIZED ACCESS: INVALID TOKEN PAYLOAD",
                 status: 'failed'
+            })
+        }
+
+        const user = await usermodel.findById(userId)
 
