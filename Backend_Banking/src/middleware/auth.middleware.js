@@ -8,4 +8,8 @@ async function authmiddleware(req, res, next) {
 
     if (!token) {
         return res.status(401).json({
+            message: "USER IS NOT LOGIN",
+            status: 'failed'
+        })
+    }
 
