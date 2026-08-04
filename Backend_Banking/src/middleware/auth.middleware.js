@@ -33,3 +33,16 @@ async function authmiddleware(req, res, next) {
             })
         }
 
+        req.user = user
+        req.userId = user._id
+        return next()
+    }
+    catch (err) {
+        return res.status(401).json({
+            message: `UNAUTHORIZED ACCESS ${err}`,
+            status: 'failed'
+        })
+    }
+}
+
+module.exports = { authmiddleware }
