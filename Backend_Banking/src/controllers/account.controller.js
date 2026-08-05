@@ -30,8 +30,30 @@ async function getallacc(req,res) {
         message:"account fetched"
     })
 }
+async function getbalancecontroller(req,res) {
+     const { accountid } = req.params;
+console.log(req.user);
+    const account = await accountmodel.findOne({
+        _id: accountid,
+        user: req.user._id
+    })
+console.log("Account ID:", accountid);
+console.log("User ID:", req.user._id);
+    if (!account) {
+        return res.status(404).json({
+            message: "Account not found"
+        })
+    }
 
+    const balance = await account.getBalance();
+
+    res.status(200).json({
+        accountId: account._id,
+        balance: balance
+    })
+}
 module.exports = {
     createaccount,
-    getallacc
+    getallacc,
+    getbalancecontroller
 };

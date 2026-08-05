@@ -6,6 +6,7 @@ const { default: mongoose } = require("mongoose")
 
 async function createtransction(req, res) {
     const { fromaccount, toaccount, amount, idempotencykey } = req.body
+    console.log(fromaccount, toaccount, amount, idempotencykey)
      if (!fromaccount || !toaccount || !amount || !idempotencykey) {
         return res.status(400).json({
             message: "toaccount, amount, idempotencykey is missing"
@@ -21,7 +22,7 @@ async function createtransction(req, res) {
   const validatekey = await transctionmodel.findOne({
     idempotencykey:idempotencykey
   })
-  if (idempotencykey) {
+  if (validatekey) {
     if (validatekey.status == "COMPLETED") {
          return res.status(400).json({
             message: "TRANSCTION ALSO COMPLETED",
@@ -61,26 +62,26 @@ if(balance  < amount ){
 
  const session = await mongoose.startSession()
     session.startTransaction()
-    const transction = await transctionmodel.create({
+    const transction = new transctionmodel ({
         fromaccount,
         toaccount,
         amount,
         idempotencykey,
         status: 'PENDING'
-    },{session})
+    })
 
-    const debitledgerentry = await ledgermodel.create({
+    const debitledgerentry = await ledgermodel.create([{
         account:fromaccount,
         amount:amount ,
         transction:transction._id,
         type:"DEBIT"
-    },{session})
-    const creditledgerentry = await ledgermodel.create({
+    }],{session})
+    const creditledgerentry = await ledgermodel.create([{
         account: toaccount,
         amount:amount,
         transction:transction._id,
         type:"CREDIT"
-    },{session})
+    }],{session})
 
 
        transction.status = "COMPLETED"

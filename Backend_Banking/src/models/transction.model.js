@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const transctionschema = new mongoose.Schema({
-    FromAccount:{
+    fromaccount:{
         type:mongoose.Schema.ObjectId,
         ref:"account",
         required:[true,"Transction must be with an accosiated account"],
         index:true
     },
-    ToAccount:{
+    toaccount:{
         type:mongoose.Schema.ObjectId,
         ref:"account",
         required:[true,"Transction must be to accosiated account"],
