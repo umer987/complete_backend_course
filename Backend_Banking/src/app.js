@@ -7,3 +7,8 @@ const authroute = require('./routes/auth.route')
 const accountroute = require('./routes/account.routes') 
 const transctionroutes = require('./routes/transction.routes')
 
+app.use('/api/auth' , authroute)
+app.use('/api/account',accountroute)
+app.use('/api/transction' , transctionroutes)
+
+module.exports = app
