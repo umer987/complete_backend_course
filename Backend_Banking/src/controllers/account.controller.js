@@ -20,6 +20,18 @@ async function createaccount(req, res) {
     })
 }
 
+async function getallacc(req,res) {
+    const user = await accountmodel.findOne({
+        user:req.user._id
+    })
+
+    res.status(201).json({
+        user,
+        message:"account fetched"
+    })
+}
+
 module.exports = {
-    createaccount
+    createaccount,
+    getallacc
 };

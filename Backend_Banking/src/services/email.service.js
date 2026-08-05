@@ -57,4 +57,25 @@ async function SendLoginEmail(userEmail , name) {
   await sendEmail(userEmail,subject,text,html)
 }
 
-module.exports = {SendRegistrationEmail,SendLoginEmail};
+async function SendTransctionAlert(userEmail , name , amount,toaccount) {
+  const subject = `${name}, TRANSCTION ALERT`;
+  const text  = `HELLO ${name} , \n\ TRANSCTION SUCCESSFULL TO ${toaccount} WITH PKR ${amount}THIS IS ALERT MESSAGE PLEASE DONT REPLY IF YOU HAVENT LOGIN PLEASE CALL 02111222333`;
+  const html = `<p>Hello ${name},</p>
+  <p>Thank you for using ledger-banking</p>`;
+  await sendEmail(userEmail,subject,text,html)
+}
+
+async function SendTransctionAlertFailed(userEmail , name , amount,toaccount) {
+  const subject = `${name}, TRANSCTION FAILED`;
+  const text  = `HELLO ${name} , \n\ TRANSCTION FAILED TO ${toaccount} WITH PKR ${amount}THIS IS ALERT MESSAGE PLEASE DONT REPLY IF YOU HAVENT LOGIN PLEASE CALL 02111222333`;
+  const html = `<p>Hello ${name},</p>
+  <p>Thank you for using ledger-banking</p>`;
+  await sendEmail(userEmail,subject,text,html)
+}
+
+module.exports = {
+  SendRegistrationEmail,
+  SendLoginEmail,
+  SendTransctionAlert,
+  SendTransctionAlertFailed
+};
