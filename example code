@@ -25,3 +25,13 @@ app.get('/search', (req, res) => {
 });
 
 // Example: GET /search?q=express&limit=5 → "Searching for 'express' with limit 5"
+
+
+app.use(express.json());
+
+app.post('/api/data', (req, res) => {
+  const { name, age } = req.body;
+  res.json({ message: `Received: ${name}, age ${age}` });
+});
+
+// POST /api/data with body: {"name":"Alice","age":30}
