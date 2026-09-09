@@ -57,3 +57,11 @@ app.post('/login', (req, res) => {
 
 app.use(express.static('public'));
 // Now http://localhost:3000/style.css serves ./public/style.css
+
+
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url} - ${new Date().toISOString()}`);
+  next(); // Pass control to the next handler
+});
+
+app.get('/', (req, res) => res.send('Logged!'));
