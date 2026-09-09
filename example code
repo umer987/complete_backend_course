@@ -45,3 +45,11 @@ app.post('/api/data', (req, res) => {
 });
 
 // POST /api/data with body: {"name":"Alice","age":30}
+
+
+app.use(express.urlencoded({ extended: true }));
+
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  res.send(`Login attempt: ${username}`);
+});
