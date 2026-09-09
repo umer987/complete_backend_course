@@ -35,3 +35,13 @@ app.post('/api/data', (req, res) => {
 });
 
 // POST /api/data with body: {"name":"Alice","age":30}
+
+
+app.use(express.json());
+
+app.post('/api/data', (req, res) => {
+  const { name, age } = req.body;
+  res.json({ message: `Received: ${name}, age ${age}` });
+});
+
+// POST /api/data with body: {"name":"Alice","age":30}
