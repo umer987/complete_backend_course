@@ -19,7 +19,7 @@ app.get('/users/:userId', (req, res) => {
 
 // Example: GET /users/42 → "User ID: 42"
 
-//lesson 3
+//lesson 4
 app.get('/search', (req, res) => {
   const { q, limit } = req.query;
   res.send(`Searching for "${q}" with limit ${limit || 10}`);
@@ -27,7 +27,7 @@ app.get('/search', (req, res) => {
 
 // Example: GET /search?q=express&limit=5 → "Searching for 'express' with limit 5"
 
-
+//lesson 5
 app.use(express.json());
 
 app.post('/api/data', (req, res) => {
