@@ -55,7 +55,7 @@ app.post('/login', (req, res) => {
   res.send(`Login attempt: ${username}`);
 });
 
-
+//lesson 9  
 app.use(express.static('public'));
 // Now http://localhost:3000/style.css serves ./public/style.css
 
