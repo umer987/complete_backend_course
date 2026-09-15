@@ -66,3 +66,7 @@ app.delete('/api/books/:id', (req, res) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
 });
+
+  const deleted = books.splice(index, 1)[0];
+  res.json({ message: 'Book deleted', data: deleted });
+});
