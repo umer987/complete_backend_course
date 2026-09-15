@@ -37,6 +37,25 @@ app.get('/api/books', (req, res) => {
 
   res.json({ count: result.length, data: result });
 });
+// GET single book by ID
+app.get('/api/books/:id', (req, res) => {
+  const book = books.find(b => b.id === req.params.id);
+  if (!book) {
+    return res.status(404).json({ error: 'Book not found' });
+  }
+  res.json(book);
+});
+
+// POST create new book
+app.post('/api/books', (req, res) => {
+  const { title, author, year } = req.body;
+
+  if (!title || !author || !year) {
+    return res.status(400).json({ error: 'title, author, and year are required' });
+  }
+  if (typeof year !== 'number') {
+    return res.status(400).json({ error: 'year must be a number' });
+  }
 
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
