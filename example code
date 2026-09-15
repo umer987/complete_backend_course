@@ -56,6 +56,12 @@ app.post('/api/books', (req, res) => {
   if (typeof year !== 'number') {
     return res.status(400).json({ error: 'year must be a number' });
   }
+// DELETE book
+app.delete('/api/books/:id', (req, res) => {
+  const index = books.findIndex(b => b.id === req.params.id);
+  if (index === -1) {
+    return res.status(404).json({ error: 'Book not found' });
+  }
 
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
