@@ -20,6 +20,24 @@ let books = [
 
 // Logger middleware
 app.use((req, res, next) => {
+// Routes
+// GET all books (with optional filtering)
+app.get('/api/books', (req, res) => {
+  const { author, year } = req.query;
+  let result = books;
+
+  if (author) {
+    result = result.filter(b =>
+      b.author.toLowerCase().includes(author.toLowerCase())
+    );
+  }
+  if (year) {
+    result = result.filter(b => b.year === parseInt(year));
+  }
+
+  res.json({ count: result.length, data: result });
+});
+
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
   next();
 });
