@@ -31,7 +31,7 @@ app.get('/api/get-books', (req, res) => {
     result = result.filter(b => b.year === parseInt(year));
   }
 
-  res.json({ count: result.length, data: result });
+  res.json({ count: result.length, data: result , message: "success" });
 });
 // GET single book by ID
 app.get('/api/books/:id', (req, res) => {
