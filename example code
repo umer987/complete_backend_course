@@ -2,10 +2,6 @@
 
 
 
-app.use((req, res, next) => {
-app.get('/api/get-books', (req, res) => {
-  const { author, year } = req.query;
-  let result = books;
 
   if (author) {
     result = result.filter(b =>
