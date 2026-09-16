@@ -5,10 +5,6 @@
 
 
 
-// POST create new book
-app.post('/api/books', (req, res) => {
-  const { title, author, year } = req.body;
-
   if (!title || !author || !year) {
     return res.status(400).json({ error: 'title, author, and year are required' });
   }
