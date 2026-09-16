@@ -3,14 +3,7 @@
 
 
 
-  if (author) {
-    result = result.filter(b =>
-      b.author.toLowerCase().includes(author.toLowerCase())
-    );
-  }
-  if (year) {
-    result = result.filter(b => b.year === parseInt(year));
-  }
+
 
   res.json({ count: result.length, data: result , message: "success" });
 });
