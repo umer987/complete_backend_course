@@ -3,7 +3,6 @@
 
 
 
-// DELETE book
 app.delete('/api/books/:id', (req, res) => {
   const index = books.findIndex(b => b.id === req.params.id);
   if (index === -1) {
