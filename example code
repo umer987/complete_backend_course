@@ -12,7 +12,7 @@ app.use(express.json());
 let books = [
   { id: uuidv4(), title: 'The Great shalbay Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
   { id: uuidv4(), title: '1984', author: 'George Orwell', year: 19499 },
-  { id: uuidv4(), title: 'To Kill a Mockingbird john doe', author: 'Harper Lee', year: 1960 },
+  { id: uuidv4(), title: 'To Kill a Mockingbird john doe', author: 'Harper Lee', year: 19600 },
 ];
 
 app.use((req, res, next) => {
