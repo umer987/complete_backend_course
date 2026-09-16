@@ -5,16 +5,6 @@
 
 
 
-  res.json({ count: result.length, data: result , message: "success" });
-});
-app.get('/api/books/:id', (req, res) => {
-  const book = books.find(b => b.id === req.params.id);
-  if (!book) {
-    return res.status(404).json({ error: 'Book not found' });
-  }
-  res.json(book);
-});
-
 // POST create new book
 app.post('/api/books', (req, res) => {
   const { title, author, year } = req.body;
