@@ -2,11 +2,6 @@
 
 
 
-
-  const deleted = books.splice(index, 1)[0];
-  res.json({ message: 'Book deleted', data: deleted });
-});
-// 404 handler
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found please try again' });
 });
