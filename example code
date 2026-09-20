@@ -1,11 +1,4 @@
 
-
-
-
-app.use((req, res) => {
-  res.status(404).json({ error: 'Route not found please try again' });
-});
-
 // Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
