@@ -77,7 +77,6 @@ app.put('/api/books/:id', (req, res) => {
   res.json(books[index]);
 });
 
-// DELETE book
 app.delete('/api/books/:id', (req, res) => {
   const index = books.findIndex(b => b.id === req.params.id);
   if (index === -1) {
