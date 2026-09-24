@@ -56,3 +56,9 @@ Route::any('/webhook', function () {
 Route::delete('/posts/{id}', function ($id) {
     return "Post $id deleted";
 });
+
+// Redirect route
+Route::redirect('/old-page', '/about');
+
+// View route (no closure needed)
+Route::view('/terms', 'terms');
