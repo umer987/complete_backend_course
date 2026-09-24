@@ -14,3 +14,15 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+
+
+// GET - Simple string response
+Route::get('/about', function () {
+    return 'About Page';
+});
+
+// GET - With optional parameter
+Route::get('/greet/{name?}', function ($name = 'Guest') {
+    return "Hello, $name!";
+});
+
