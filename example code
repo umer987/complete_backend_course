@@ -42,6 +42,16 @@ Route::patch('/posts/{id}', function ($id) {
     return "Post $id partially updated";
 });
 
+// Multiple methods on same URI
+Route::match(['get', 'post'], '/contact', function () {
+    return 'Contact page (GET or POST)';
+});
+
+// Any HTTP method
+Route::any('/webhook', function () {
+    return 'Webhook received';
+});
+
 // DELETE - Remove resource
 Route::delete('/posts/{id}', function ($id) {
     return "Post $id deleted";
