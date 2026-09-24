@@ -26,3 +26,14 @@ Route::get('/greet/{name?}', function ($name = 'Guest') {
     return "Hello, $name!";
 });
 
+
+// POST - Create resource
+Route::post('/posts', function () {
+    return 'Post created';
+});
+
+// PUT - Full update
+Route::put('/posts/{id}', function ($id) {
+    return "Post $id fully updated";
+});
+
