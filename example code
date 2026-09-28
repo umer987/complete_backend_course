@@ -10,7 +10,6 @@ Route::get('/', function () {
 })->name('home');
 
 
-// GET - Simple string response
 Route::get('/about', function () {
     return 'About Page';
 });
