@@ -8,11 +8,7 @@
 
 
 
-
-
-// Multiple methods on same URI
-Route::match(['get', 'post'], '/contact', function () {
-    return 'Contact page (GET or POST)';
+r POST)';
 });
 
 // Any HTTP method
