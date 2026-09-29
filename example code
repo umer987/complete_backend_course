@@ -7,10 +7,6 @@
 
 
 
-// DELETE - Remove resource
-Route::delete('/posts/{id}', function ($id) {
-    return "Post $id deleted";
-});
 
 // Redirect route
 Route::redirect('/old-page', '/about');
