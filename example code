@@ -3,9 +3,6 @@
 
 
 
-Route::get('/about', function () {
-    return 'About Page';
-});
 
 Route::get('/greet/{name?}', function ($name = 'Guest') {
     return "Hello, $name!";
