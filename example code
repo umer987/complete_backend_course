@@ -6,9 +6,7 @@
 
 
 
-Route::post('/posts', function () {
-    return 'Post created';
-});
+
 
 Route::put('/posts/{id}', function ($id) {
     return "Post $id fully updated";
