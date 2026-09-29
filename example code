@@ -7,15 +7,6 @@
 
 
 
-
-r POST)';
-});
-
-// Any HTTP method
-Route::any('/webhook', function () {
-    return 'Webhook received';
-});
-
 // DELETE - Remove resource
 Route::delete('/posts/{id}', function ($id) {
     return "Post $id deleted";
