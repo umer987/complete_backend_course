@@ -10,10 +10,6 @@
 
 
 
-Route::patch('/posts/{id}', function ($id) {
-    return "Post $id partially updated";
-});
-
 // Multiple methods on same URI
 Route::match(['get', 'post'], '/contact', function () {
     return 'Contact page (GET or POST)';
