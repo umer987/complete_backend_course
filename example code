@@ -4,9 +4,6 @@
 
 
 
-Route::get('/greet/{name?}', function ($name = 'Guest') {
-    return "Hello, $name!";
-});
 
 
 Route::post('/posts', function () {
