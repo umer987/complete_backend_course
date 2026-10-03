@@ -9,7 +9,6 @@
 
 
 
-
 // Route with constraints (only numeric IDs)
 Route::get('/user/{id}', function ($id) {
     return "User ID: $id";
