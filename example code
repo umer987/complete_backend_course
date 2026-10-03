@@ -8,8 +8,6 @@
 
 
 
-// View route (no closure needed)
-Route::view('/terms', 'terms');
 
 
 // Route with constraints (only numeric IDs)
